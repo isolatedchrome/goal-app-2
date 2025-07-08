@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Co-Star inspired cream & espresso palette */
+  --color-cream: #faf8f5;
+  --color-warm-white: #ffffff;
+  --color-parchment: #f5f2ed;
+  --color-sage: #2d4a2b;
+  --color-sage-light: #4a6b47;
+  --color-sage-dark: #1a2e19;
+  --color-terracotta: #4a3429;
+  --color-terracotta-light: #6b4d3d;
+  --color-terracotta-dark: #2e1f17;
+  --color-dusty-blue: #2d4a2b;
+  --color-dusty-blue-light: #4a6b47;
+  --color-dusty-blue-dark: #1a2e19;
+  --color-warm-gray: #8b7d73;
+  --color-warm-gray-light: #a69990;
+  --color-warm-gray-dark: #6b5d53;
+  --color-charcoal: #2e1f17;
+  --color-ink: #1a1a1a;
+  --color-amber: #d4b896;
+  --color-amber-light: #e6d1b3;
+  --color-rose: #c4a8a8;
+  --color-lavender: #b8b8c4;
+  
+  /* Co-Star inspired gradients */
+  --theme-gradient-primary: linear-gradient(145deg, var(--color-sage) 0%, var(--color-terracotta) 35%, var(--color-sage-light) 70%, var(--color-amber) 100%);
+  --theme-gradient-secondary: linear-gradient(125deg, var(--color-terracotta) 0%, var(--color-terracotta-light) 60%, var(--color-sage) 100%);
+  --theme-shadow-color: rgba(45, 74, 43, 0.25);
+  --theme-glow-color: rgba(74, 107, 71, 0.35);
+  
+  /* Analog texture overlays */
+  --theme-texture-overlay: radial-gradient(ellipse at 25% 75%, rgba(45, 74, 43, 0.08) 0%, transparent 45%);
+  --theme-paper-grain: repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(45, 74, 43, 0.02) 1px, rgba(45, 74, 43, 0.02) 2px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Crimson Text', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  line-height: 1.7;
+  position: relative;
+}
+
+/* Co-Star inspired global paper texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--theme-paper-grain);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--theme-texture-overlay);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+#root {
+  position: relative;
+  z-index: 10;
+}
+
+/* Co-Star inspired typography */
+.text-display {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-rendering: optimizeLegibility;
+}
+
+.text-accent {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+.text-body {
+  font-family: 'Crimson Text', serif;
+  font-weight: 400;
+  line-height: 1.8;
+  text-rendering: optimizeLegibility;
+}
+
+/* Co-Star inspired analog card styling */
+.card {
+  background: var(--color-warm-white);
+  border-radius: 2px;
+  border: 1px solid var(--color-warm-gray-light);
+  position: relative;
+  
+  /* Minimal, analog shadows like Co-Star */
+  box-shadow: 
+    0 1px 3px rgba(26, 46, 25, 0.12),
+    0 2px 8px rgba(26, 46, 25, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 2px 6px rgba(26, 46, 25, 0.15),
+    0 4px 12px rgba(26, 46, 25, 0.10),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Co-Star inspired button styling */
+.btn-primary {
+  background: var(--color-sage);
+  color: var(--color-warm-white);
+  border: 1px solid var(--color-sage-dark);
+  border-radius: 2px;
+  padding: 12px 24px;
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  
+  /* Minimal shadow like Co-Star */
+  box-shadow: 
+    0 1px 2px rgba(26, 46, 25, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-sage-light);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 2px 4px rgba(26, 46, 25, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 1px 2px rgba(26, 46, 25, 0.3),
+    inset 0 1px 3px rgba(26, 46, 25, 0.2);
+}
+
+.btn-secondary {
+  background: var(--color-parchment);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-warm-gray-light);
+  border-radius: 2px;
+  padding: 12px 24px;
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  
+  /* Subtle inset like Co-Star */
+  box-shadow: 
+    inset 0 1px 2px rgba(26, 46, 25, 0.05),
+    0 1px 2px rgba(26, 46, 25, 0.08);
+  
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-warm-white);
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 1px 2px rgba(26, 46, 25, 0.03),
+    0 2px 4px rgba(26, 46, 25, 0.12);
+}
+
+/* Co-Star inspired input styling */
+.input-field {
+  width: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--color-warm-gray-light);
+  border-radius: 2px;
+  background: var(--color-warm-white);
+  font-family: 'Crimson Text', serif;
+  font-size: 16px;
+  color: var(--color-ink);
+  
+  /* Minimal inset shadow */
+  box-shadow: 
+    inset 0 1px 3px rgba(26, 46, 25, 0.08),
+    0 1px 2px rgba(26, 46, 25, 0.05);
+  
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-sage);
+  box-shadow: 
+    inset 0 1px 3px rgba(26, 46, 25, 0.10),
+    0 0 0 2px rgba(45, 74, 43, 0.15);
+}
+
+.input-field::placeholder {
+  color: var(--color-warm-gray);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Co-Star inspired progress bar */
+.progress-bar {
+  background: var(--color-sage);
+  border-radius: 1px;
+  position: relative;
+  
+  /* Minimal shadow */
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(26, 46, 25, 0.15);
+}
+
+/* Co-Star inspired priority badges */
+.priority-high {
+  background: var(--color-terracotta);
+  border-color: var(--color-terracotta-dark) !important;
+  color: var(--color-warm-white) !important;
+  box-shadow: 
+    0 1px 2px rgba(46, 31, 23, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.priority-medium {
+  background: var(--color-amber);
+  border-color: var(--color-warm-gray-dark) !important;
+  color: var(--color-charcoal) !important;
+  box-shadow: 
+    0 1px 2px rgba(107, 93, 83, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.priority-low {
+  background: var(--color-warm-gray-light);
+  border-color: var(--color-warm-gray) !important;
+  color: var(--color-charcoal) !important;
+  box-shadow: 
+    0 1px 2px rgba(107, 93, 83, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Co-Star inspired next task highlight */
+.next-task-highlight {
+  background: var(--color-sage);
+  border-color: var(--color-sage-dark) !important;
+  color: var(--color-warm-white) !important;
+  position: relative;
+  
+  /* Subtle glow like Co-Star */
+  box-shadow: 
+    0 2px 4px rgba(45, 74, 43, 0.2),
+    0 0 8px rgba(45, 74, 43, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Minimal shadow utility */
+.minimal-shadow {
+  box-shadow: 
+    0 1px 3px rgba(26, 46, 25, 0.12),
+    0 2px 8px rgba(26, 46, 25, 0.08);
+}
+
+/* Task completion styling */
+.task-completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: var(--color-warm-gray) !important;
+  transition: all 0.3s ease;
+}
+
+/* Co-Star inspired animations */
+@keyframes subtle-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-fade-in-up {
+  animation: subtle-fade 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Enhanced paper texture for cards */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--theme-texture-overlay);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--theme-paper-grain);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.card > * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Co-Star inspired modal backdrop */
+.fixed.inset-0.bg-black.bg-opacity-40 {
+  background: rgba(26, 26, 26, 0.4) !important;
+  backdrop-filter: blur(2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin: 0 4px;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 10px 20px;
+  }
+  
+  .input-field {
+    padding: 14px 18px;
+  }
+}
+
+/* Co-Star inspired scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray);
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage);
+}
